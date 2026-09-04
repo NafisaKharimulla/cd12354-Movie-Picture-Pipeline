@@ -198,6 +198,7 @@ resource "aws_eks_node_group" "main" {
   node_role_arn   = aws_iam_role.node_group.arn
   subnet_ids      = [var.enable_private == true ? aws_subnet.private_subnet.id : aws_subnet.public_subnet.id]
   instance_types  = ["t3.small"]
+  ami_type        = "BOTTLEROCKET_x86_64"
 
   scaling_config {
     desired_size = 1

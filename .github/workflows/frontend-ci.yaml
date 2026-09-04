@@ -7,11 +7,13 @@ on:
     paths:
       - "starter/frontend/**"
       - ".github/workflows/frontend-ci.yaml"
+
   workflow_dispatch:
 
 jobs:
   lint:
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: starter/frontend
@@ -35,6 +37,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: starter/frontend
@@ -56,7 +59,7 @@ jobs:
       - name: Run tests
         run: CI=true npm test
 
-    build:
+  build:
     runs-on: ubuntu-latest
     needs:
       - lint
